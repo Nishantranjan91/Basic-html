@@ -1,0 +1,17 @@
+.head{
+   display: flex;
+   justify-content: space-around;
+   
+}
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: skyblue;
+}
+.nav{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
