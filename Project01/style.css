@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+/* #main{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+} */
+#nav{
+    height: 100px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 0 30px;
+}
+#nav h4{
+    font-size: 20px;
+
+}
+#nav i{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+}
+#center{
+    width: 100%;
+    /* background-color: red; */
+    padding:40px 80px;
+    line-height: 80px;
+}
+#center h1{
+     font-size: 80px;
+     font-weight: 500;
+     line-height: 90px;
+}
+
+#center-in{
+    height: 200px;
+    background-color: white;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#center-in p{
+    font-size: 22px;
+    font-weight: 600px;
+    line-height: 32px;
+
+}
+#right{
+width: 20%;
+}
+.elem{
+    background-color: white;
+    padding: 20px 0;
+    border-top: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.elem i{
+    font-size: 25px;
+    font-weight: 500;
+    opacity: 0;
+}
+.elem a{
+color: black;
+text-decoration: none;
+font-weight: 600;
+font-size: 20px;
+}
+.elem:hover i{
+    opacity: 1;
+}
+.elem:hover{
+    background-color: rgb(245, 220, 220);
+}
+.elem:hover a{
+    text-decoration: underline;
+}
+#bottom{
+    height: 100%;
+    width: 100%;
+    /* background: red; */
+    background-image: url(https://media.istockphoto.com/id/1450677469/photo/shop-glasses-and-eyes-of-black-child-with-vision-healthcare-frame-check-or-choice-in-retail.webp?b=1&s=170667a&w=0&k=20&c=Qsu32r57KmaTRSKEOAfkcEZ6Za-rRVYxAOkIk-5d2SE=);
+    background-size: cover;
+    background-position: 50 50;
+}
