@@ -81,4 +81,10 @@ html, body {
     height: 90%;
     width: 38%;
     background: blue;
+    position: relative;
+}
+#right-top{
+    height: 50px;
+    width: 100%;
+    background-color: red;
 }
