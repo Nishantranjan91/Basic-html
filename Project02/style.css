@@ -81,7 +81,7 @@ html, body {
 #right{
     height: 90%;
     width: 33%;
-    background: blue;
+    /* background: blue; */
     position: relative;
 }
 #right-top{
@@ -106,4 +106,7 @@ html, body {
 #right-top h5 i{
      color: gold;
 
+}
+#right image{
+    width: 100%;
 }
