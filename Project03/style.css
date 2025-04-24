@@ -29,3 +29,9 @@ div{
     text-align: right;
     font-size: medium500px;
 } 
+div{
+    background-color:red;
+    border: 5px solid yellow;
+    padding: 5px;
+    margin: 5px;
+}
