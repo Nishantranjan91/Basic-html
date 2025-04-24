@@ -1,0 +1,24 @@
+.para1{
+    color: rgb(rgb(60, 256, 60), rgb(60, 50, 120), rgb(50, 60, 80));
+}
+#a{
+    text-align: center;
+    background-color: aquamarine;
+    color: rgb(60, 256,60);
+}
+#b{
+    text-align: center;
+    background-color: aquamarine;
+    color: rgb(60, 50,120);
+}
+#c{
+    text-align: center;
+    background-color: aquamarine;
+    color: rgb(50, 60,80);
+}
+body{
+    background-color: blue;
+}
+body{
+    background-repeat: repeat-y;
+}
