@@ -1,0 +1,66 @@
+p{
+    outline-color: orange;
+}
+p.a{
+    outline-style: dotted;
+}
+
+p.b{
+    outline-style: dashed;
+
+        outline-color: green;
+}
+p.c{
+    outline-style:solid;
+    outline-color:yellow ;
+}
+p.d{
+    outline-style:double;
+    outline-color:yellow ;
+}
+p.e{
+    outline-style: groove;
+    outline-color:yellow ;
+}
+h1{
+    text-align: center;
+    color: green;
+    text-decoration: overline;
+    text-transform: capitalize;
+}
+h2{
+    text-align: left;
+    color: red;
+    text-decoration: line-through;
+    text-transform: lowercase;
+}
+h3{
+    text-align: right;
+    color: aqua;
+    text-decoration: double;
+    text-transform: uppercase;
+}
+h4{
+    text-align: start;
+    color: blue;
+    text-decoration: solid;
+    text-transform: initial;
+}
+p{
+    letter-spacing: 5px;
+    text-indent: 120px;
+    font-family: 'Times New Roman';
+    font-style: italic;
+}
+a:link{
+    color: yellow;
+}
+a:visited{
+    color: blue;
+}
+a:hover{
+    color: red;
+}
+a:active{
+    color: black;
+}
