@@ -1,0 +1,17 @@
+p{
+    height: 250px; ;
+    width: 300px;
+    border: 5px solid aqua;
+    overflow: scroll;
+}
+
+div{
+    overflow-x:scroll ;
+    overflow-y: scroll;
+}
+ul.a{
+    list-style-type: disc;
+}
+li.x{
+    list-style-image: url(https://cdn.pixabay.com/photo/2025/04/22/05/54/dog-9548923_1280.jpg);
+}
