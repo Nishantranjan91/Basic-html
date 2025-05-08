@@ -13,7 +13,7 @@ div.abs{
 
 }
 p.fx{
-    position: fixed;
+    position: sticky;
     border: 5px solid green;
     width: 50%;
     background-color: red;
@@ -26,4 +26,14 @@ p.fix{
     width: 50%;
     background-color: blue;
     /* right: 0; */
+}
+ul{
+    list-style: none;
+    background-color: chocolate;
+    background-color:gray;
+    overflow: auto;
+}
+li{
+    float: left;
+    padding: 10px;
 }
