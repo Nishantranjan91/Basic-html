@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Development Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #4CAF50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    aside {
+      background-color: #f0f0f0;
+      padding: 1rem;
+    }
+
+    main {
+      padding: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+    }
+
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    #todoSection {
+      margin-top: 2rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background: #e0e0e0;
+      margin: 5px 0;
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>My Web Project</nav>
+
+  <div class="grid">
+    <aside>
+      <h3>Sidebar</h3>
+      <p>Navigation or additional content here.</p>
+    </aside>
+
+    <main>
+      <h2>Contact Form</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="todoSection">
+        <h2>Dynamic To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="New task" />
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Contact Form Validation
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (!name || !emailPattern.test(email)) {
+        alert("Please enter a valid name and email.");
+        e.preventDefault();
+      }
+    });
+
+    // Dynamic To-Do List
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const task = input.value.trim();
+      if (task) {
+        const li = document.createElement("li");
+        li.textContent = task;
+        li.onclick = () => li.remove();
+        document.getElementById("taskList").appendChild(li);
+        input.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
