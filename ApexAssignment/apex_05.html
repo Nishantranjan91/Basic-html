@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini E-Commerce</title>
+  <style>
+    body{margin:0;font-family:sans-serif;background:#f4f4f4}
+    header,footer{background:#222;color:#fff;text-align:center;padding:1rem}
+    main{padding:2rem}
+    h1{margin:0}
+    .product-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+    .product{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1)}
+    .product img{width:100%;height:auto;border-radius:8px}
+    .product h2{font-size:1.2rem;margin:0.5rem 0}
+    .product p{margin:0;color:#333}
+    .price{color:#e91e63;font-weight:bold}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Product Store</h1>
+  </header>
+
+  <main>
+    <section id="product-list" class="product-list"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Product Store</p>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Smartphone", price: "$699", image: "https://via.placeholder.com/300x200?text=Smartphone" },
+      { name: "Headphones", price: "$199", image: "https://via.placeholder.com/300x200?text=Headphones" },
+      { name: "Laptop", price: "$999", image: "https://via.placeholder.com/300x200?text=Laptop" }
+    ];
+
+    const productList = document.getElementById("product-list");
+
+    products.forEach(product => {
+      const productEl = document.createElement("div");
+      productEl.classList.add("product");
+      productEl.innerHTML = `
+        <img src="${product.image}" loading="lazy" alt="${product.name}" />
+        <h2>${product.name}</h2>
+        <p class="price">${product.price}</p>
+      `;
+      productList.appendChild(productEl);
+    });
+  </script>
+</body>
+</html>
