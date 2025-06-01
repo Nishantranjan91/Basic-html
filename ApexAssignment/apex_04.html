@@ -1,0 +1,202 @@
+<!-- ================================ -->
+<!-- Project 1: Personal Portfolio -->
+<!-- ================================ -->
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <section id="about">
+    <h1>About Me</h1>
+    <p>Hello! I'm a web developer passionate about creating responsive and user-friendly websites.</p>
+  </section>
+  <section id="projects">
+    <h1>Projects</h1>
+    <div class="project">
+      <h2>To-Do App</h2>
+      <p>A simple to-do list using localStorage.</p>
+    </div>
+  </section>
+  <section id="contact">
+    <h1>Contact</h1>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</body>
+</html>
+
+<!-- style.css -->
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+nav {
+  background: #333;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+section {
+  padding: 20px;
+}
+form input, form textarea, form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+<!-- ===================================== -->
+<!-- Project 2: To-Do List with LocalStorage -->
+<!-- ===================================== -->
+<!-- todo.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>To-Do List</h1>
+  <input type="text" id="taskInput" placeholder="Enter a new task">
+  <button onclick="addTask()">Add Task</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+      taskList.innerHTML = '';
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.textContent = task;
+        li.onclick = () => removeTask(index);
+        taskList.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const task = taskInput.value.trim();
+      if (task) {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        tasks.push(task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        taskInput.value = '';
+        loadTasks();
+      }
+    }
+
+    function removeTask(index) {
+      const tasks = JSON.parse(localStorage.getItem('tasks'));
+      tasks.splice(index, 1);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      loadTasks();
+    }
+
+    window.onload = loadTasks;
+  </script>
+</body>
+</html>
+
+
+<!-- ============================================ -->
+<!-- Project 3: Product Listing with Filtering -->
+<!-- ============================================ -->
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Listing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Products</h1>
+  <select id="categoryFilter">
+    <option value="all">All</option>
+    <option value="electronics">Electronics</option>
+    <option value="clothing">Clothing</option>
+  </select>
+
+  <select id="sortBy">
+    <option value="default">Sort By</option>
+    <option value="priceLow">Price: Low to High</option>
+    <option value="priceHigh">Price: High to Low</option>
+    <option value="rating">Rating</option>
+  </select>
+
+  <div id="productList"></div>
+
+  <script>
+    const products = [
+      { name: "Phone", category: "electronics", price: 500, rating: 4.5 },
+      { name: "T-shirt", category: "clothing", price: 20, rating: 4.2 },
+      { name: "Laptop", category: "electronics", price: 1200, rating: 4.8 },
+      { name: "Jeans", category: "clothing", price: 40, rating: 4.0 }
+    ];
+
+    const productList = document.getElementById('productList');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const sortBy = document.getElementById('sortBy');
+
+    function displayProducts(items) {
+      productList.innerHTML = items.map(p => `<div><strong>${p.name}</strong><br>Category: ${p.category}<br>Price: $${p.price}<br>Rating: ${p.rating}</div><hr>`).join('');
+    }
+
+    function filterAndSort() {
+      let filtered = [...products];
+
+      if (categoryFilter.value !== 'all') {
+        filtered = filtered.filter(p => p.category === categoryFilter.value);
+      }
+
+      if (sortBy.value === 'priceLow') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortBy.value === 'priceHigh') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sortBy.value === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      }
+
+      displayProducts(filtered);
+    }
+
+    categoryFilter.onchange = sortBy.onchange = filterAndSort;
+
+    displayProducts(products);
+  </script>
+</body>
+</html>
